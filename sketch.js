@@ -1,4 +1,5 @@
 var s;
+var scl = 10;
 
 function setup() {
   createCanvas(600, 600);
