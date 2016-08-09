@@ -3,6 +3,8 @@ function Snake () {
   this.y = 0;
   this.xspeed = 1;
   this.yspeed = 0;
+  this.total = 0;
+  this.tail = [];
 
   this.dir = function(x, y) {
     this.xspeed = x;
@@ -13,13 +15,23 @@ function Snake () {
   this.eat = function(pos) {
     var d = dist(this.x, this.y, pos.x, pos.y);
     if (d < 2) {
+      total++;
       return true;
     } else {
       return false;
     }
   }
 
+  /***
+  Movement and constarining the snake,
+  also keeping track of the total tail
+  ***/
   this.update = function () {
+    for (var i = 0; i < total-1; i++) {
+      tail[i] = tail[i+1];
+    }
+    tail[total-1] = createVector(this.x, this.y);
+
     this.x = this.x + this.xspeed*scl;
     this.y = this.y + this.yspeed*scl;
 
