@@ -1,16 +1,22 @@
 var s;
 var scl = 10;
 
+var food;
+
 function setup() {
   createCanvas(600, 600);
   s = new Snake();
   frameRate(10);
+  food = createVector(random(width), random(height));
 }
 
 function draw() {
   background(51);
   s.update ();
   s.show();
+
+  fill(255, 0, 100);
+  rect(food.x, food.y, scl, scl);
 }
 
 function keyPressed() {
