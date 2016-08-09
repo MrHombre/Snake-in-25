@@ -9,6 +9,16 @@ function Snake () {
     this.yspeed = y;
   }
 
+/* This function is to tell if the snake has reached the food */
+  this.eat = function(pos) {
+    var d = dist(this.x, this.y, pos.x, pos.y);
+    if (d < 2) {
+      return true;
+    } else {
+      return false;
+    }
+  }
+
   this.update = function () {
     this.x = this.x + this.xspeed*scl;
     this.y = this.y + this.yspeed*scl;
