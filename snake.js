@@ -23,6 +23,16 @@ function Snake () {
   }
 
   /*Death if snake touches it own body*/
+  this.death = function() {
+    for (var i = 0; i < this.tail.length; i++) {
+      var pos = this.tail[i]
+      var d = dist(this.x, this.y, pos.x pos.y);
+      if (d < 1) {
+        this.total = 0;
+        this.tail = [];
+      }
+    }
+  }
 
   /***
   Movement and constarining the snake,

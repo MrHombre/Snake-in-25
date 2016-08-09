@@ -31,8 +31,6 @@ p5 draw function
 ****/
 function draw() {
   background(51);
-  s.update ();
-  s.show();
 
   /****
   If the sanke eaten the food pick a new location
@@ -40,6 +38,9 @@ function draw() {
   if (s.eat(food)) {
     pickLocation()
   }
+  s.death();
+  s.update();
+  s.show();
 
   /****
   Color for the food
