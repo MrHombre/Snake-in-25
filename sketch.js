@@ -2,7 +2,7 @@
 Global Vars
 ****/
 var s;
-var scl = 10;
+var scl = 15;
 
 var food;
 
