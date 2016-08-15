@@ -3,8 +3,8 @@ Global Vars
 ****/
 var s;
 var scl = 15;
-
 var food;
+var score;
 
 /****
 Set-ups for p5
@@ -14,6 +14,7 @@ function setup() {
   s = new Snake();
   frameRate(10);
   pickLocation();
+  "SCORE: " + score, 10, createCanvas.height-10;
 }
 
 /****
@@ -37,6 +38,7 @@ function draw() {
   ****/
   if (s.eat(food)) {
     pickLocation()
+    score++;
   }
   s.death();
   s.update();
@@ -47,6 +49,12 @@ function draw() {
   ****/
   fill(255, 0, 100);
   rect(food.x, food.y, scl, scl);
+
+  /*********
+  Score
+  **********/
+  score = 0;
+  score.fillStyle = "#fff";
 }
 
 
@@ -54,13 +62,13 @@ function draw() {
 Function for the Keypresses
 ****/
 function keyPressed() {
-  if (keyCode === UP_ARROW) {
+  if (keyCode === UP_ARROW && keyCode !== DOWN_ARROW) {
     s.dir(0, -1);
-  } else if (keyCode === DOWN_ARROW) {
+  } else if (keyCode === DOWN_ARROW && keyCode !== UP_ARROW) {
     s.dir(0, 1);
-  } else if (keyCode === RIGHT_ARROW) {
+  } else if (keyCode === RIGHT_ARROW && keyCode !== LEFT_ARROW) {
     s.dir(1, 0);
-  } else if (keyCode === LEFT_ARROW) {
+  } else if (keyCode === LEFT_ARROW && keyCode !== RIGHT_ARROW) {
     s.dir(-1, 0);
   }
 }
